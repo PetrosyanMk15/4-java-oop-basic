@@ -41,13 +41,13 @@ public class TimeSpan {
         this.seconds = seconds;
     }
 
-    void add(TimeSpan time) {
+    public void add(TimeSpan time) {
         this.hours += time.hours;
         this.minutes += time.minutes;
         this.seconds += time.seconds;
     }
 
-    void subtract(TimeSpan time) {
+    public void subtract(TimeSpan time) {
         this.hours -= time.hours;
         this.minutes -= time.minutes;
         this.seconds -= time.seconds;
