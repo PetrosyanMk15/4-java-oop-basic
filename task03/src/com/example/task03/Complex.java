@@ -4,12 +4,12 @@ public class Complex {
     private double re;
     private double im;
 
-    Complex() {
+    public Complex() {
         this.re = 0;
         this.im = 0;
     }
 
-    Complex(double real, double imag) {
+    public Complex(double real, double imag) {
         this.re = real;
         this.im = imag;
     }
