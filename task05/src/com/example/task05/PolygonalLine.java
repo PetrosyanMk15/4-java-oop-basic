@@ -9,6 +9,10 @@ public class PolygonalLine {
 
     private List<Point> polyLine = new ArrayList<Point>();
 
+    public PolygonalLine(){
+
+    }
+
     /**
      * Устанавливает точки ломаной линии
      *
@@ -16,8 +20,8 @@ public class PolygonalLine {
      */
     public void setPoints(Point[] points) {
 
-        for (int i = 0; i < points.length; i++) {
-            this.addPoint(new Point(points[i].getX(), points[i].getY()));
+        for (Point elem : points) {
+            this.addPoint(new Point(elem.getX(), elem.getY()));
         }
     }
 
@@ -46,12 +50,21 @@ public class PolygonalLine {
      * @return длину ломаной линии
      */
     public double getLength() {
-        // TODO: реализовать
+
         double Length = 0;
-        // throw new AssertionError();
-        for (int i = 0; i < this.polyLine.size() - 1; i++) {
-            Length += this.polyLine.get(i).getLength(this.polyLine.get(i + 1));
+        Iterator<Point> it = polyLine.iterator();
+        Point current = null;
+        Point next = null;
+
+        while (it.hasNext()) {
+
+            next = it.next();
+            if (current != null)
+                Length += current.getLength(next);
+
+            current = next; // Save what was the "next" as the next "current".
         }
+
         return Length;
     }
 
